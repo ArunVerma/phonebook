@@ -1,0 +1,9 @@
+<tr>
+	<td><%= f.check_box :_destroy %></td>
+	<td><%= f.select :address_type, ["Home", "Work", "Other"], prompt: 'Address Type' %>
+	</td>
+	<td><%= f.text_field :street, placeholder: 'Street' %></td>
+	<td><%= f.text_field :city, placeholder: 'City' %></td>
+	<td><%= f.text_field :state, placeholder: 'State' %></td>
+	<td><%= f.text_field :country, placeholder: 'Country' %></td>
+</tr>

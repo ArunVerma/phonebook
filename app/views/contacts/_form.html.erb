@@ -1,0 +1,31 @@
+<%= render partial: 'contacts/form_header' %>
+<%= render partial: 'contacts/contact_details', locals: {f: f} %>
+<div class="panel panel-default">
+  <div class="panel-heading">Phone Number</div>
+  <table class="table">
+    <tbody class="phone_fields">
+      <%= f.fields_for :phone_numbers do | builder | %>
+        <%= render partial: 'contacts/phone_number', locals: {f: builder} %>
+      <% end %> 
+    </tbody>
+  </table>
+  <div>
+    <%= link_to_add_new_row('Add More Number', f, :phone_numbers, 'add-phone-row') %>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">Address Details</div>
+  <table class="table">
+    <tbody class="address_fields">
+      <%= f.fields_for :addresses do | builder | %>
+        <%= render partial: 'contacts/address', locals: {f: builder} %>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= link_to_add_new_row('Add More Address', f, :addresses, 'add-address-row') %>      
+  </div>
+</div>
+<div class="pull-left" style="margin-top: 20px;">
+  <%= f.submit "Save Contacat", class: 'btn btn-primary' %>
+</div>

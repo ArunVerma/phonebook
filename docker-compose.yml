@@ -1,0 +1,43 @@
+version: '2'
+
+# services:
+#   db:
+#     image: mysql:5.7
+#     restart: always
+#     environment:
+#       MYSQL_ROOT_PASSWORD: root@123
+#       MYSQL_DATABASE: phonebook
+#       MYSQL_USER: root
+#       MYSQL_PASSWORD: root@123
+#   app:
+#     build: .
+#     command: bundle exec rails s -p 3000 -b '0.0.0.0'
+#     volumes:
+#       - ".:/phonebook"
+#     depends_on:
+#       - db
+#     links:
+#       - db
+    # environment:
+    #   DB_NAME: phonebook
+    #   DB_USER: root
+    #   DB_PASSWORD: root@123
+    #   DB_HOST: db
+
+services:
+  mysql:
+    container_name: my_mysql
+    image: mysql:latest
+    hostname: my_mysql
+    ports:
+      - '3307:3307'
+    volumes:
+      - my_mysql:/var/docker/my_mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: root@123
+      MYSQL_DATABASE: phonebook
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root@123
+      MYSQL_HOST: my_mysql
+volumes:
+  my_mysql:

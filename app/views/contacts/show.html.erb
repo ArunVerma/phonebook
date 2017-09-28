@@ -1,0 +1,40 @@
+<% content_for(:page_header) do %>
+  <%= @contact.name %>'s Detail
+<% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">Contacat Details</div>
+  <table class="table">
+    <tr>
+      <td><%= @contact.name %></td>
+      <td><%= @contact.email %></td>
+    </tr>             
+  </table>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">Phone Numbers</div>
+  <table class="table">
+    <tbody>
+      <% @contact.phone_numbers.each do | phone_number| %>
+        <tr>
+          <td><%= phone_number.phone_number %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">Address Details</div>
+  <table class="table">
+    <tbody class="address_fields">
+      <% @contact.addresses.each do | address| %>
+        <tr>
+          <td><%= address.address_type %></td>
+          <td><%= address.street %></td>
+          <td><%= address.city %></td>
+          <td><%= address.state %></td>
+          <td><%= address.country %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

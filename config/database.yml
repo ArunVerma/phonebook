@@ -1,0 +1,42 @@
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   username: root
+#   password: root@123
+#   socket: /var/run/mysqld/mysqld.sock
+
+# development:
+#   <<: *default
+#   database: phonebook_development
+
+# test:
+#   <<: *default
+#   database: phonebook_test
+
+# production:
+#   <<: *default
+#   database: phonebook_production
+#   username: phonebook
+#   password: <%= ENV['PHONEBOOK_DATABASE_PASSWORD'] %>
+
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  database: <%= ENV['MYSQL_NAME'] %>
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  host: <%= ENV['MYSQL_HOST'] %>
+
+development:
+  <<: *default
+  
+test:
+  <<: *default
+production:
+  <<: *default
+  # database: phoneBook_production
+  # username: phoneBook
+  # password: <%= ENV['PHONEBOOK_DATABASE_PASSWORD'] %>

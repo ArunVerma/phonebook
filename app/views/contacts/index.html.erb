@@ -1,0 +1,28 @@
+<% content_for(:page_header) do %>
+  Contact List
+<% end %>
+<% if @contacts %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    	<% @contacts.each do |contact| %>
+        <tr>
+          <td><%= contact.name %></td>
+          <td>
+            <%= link_to 'View Details', contact_path(contact.id), method: 'get' %> | 
+            <%= link_to 'Edit', edit_contact_path(contact.id) %> | 
+            <%= link_to 'Delete', contact_path(contact.id), method: 'delete', data: {confirm: "Are you sure?"} %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No contacts found</p>
+<% end %>
+

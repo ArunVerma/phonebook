@@ -1,0 +1,7 @@
+<% content_for(:page_header) do %>
+  Create New Contact
+<% end %>
+<%= form_for @contact, url: contacts_path(), method: 'post' do |f|%>
+  <%= render partial: 'contacts/form', locals: {f: f} %>
+<% end %>
+
