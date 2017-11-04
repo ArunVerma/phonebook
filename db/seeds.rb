@@ -3,7 +3,6 @@ contacts = Contact.create([{name: 'Ram Singh', email: 'ram@oracle.com'}, {name: 
 puts '..Done'
 puts 'Creating addresses...'
 contacts.first.addresses.create({
-      house_no: '214A',
       street: 'College street',
       city: 'Kolkata',
       state: 'West Bengal',
@@ -11,7 +10,6 @@ contacts.first.addresses.create({
       address_type: 'Home'
 })
 contacts.last.addresses.create({
-      house_no: '215B',
       street: 'Park street',
       city: 'Kolkata',
       state: 'West Bengal',

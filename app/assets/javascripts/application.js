@@ -16,4 +16,3 @@
 // located under app/assets
 //= require oracle_admin
 //= require custom
-//= require contacts
